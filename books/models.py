@@ -30,3 +30,4 @@ class Comment(models.Model):
     def short_text(self):
         return truncatewords(self.text, 10)
 
+

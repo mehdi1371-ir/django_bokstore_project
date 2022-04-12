@@ -16,6 +16,7 @@ class BookListView(generic.ListView):
 # class BookDetailView(generic.DetailView):
 #     model = Book
 #     template_name = 'books/book_detail.html'
+
 def book_detail_view(request, pk):
     book = get_object_or_404(Book, pk=pk)
     book_comments = book.comments.all()
