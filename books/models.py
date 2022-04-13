@@ -19,7 +19,7 @@ class Book(models.Model):
 
 
 class Comment(models.Model):
-    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True)
     book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='comments')
     text = models.TextField()
     is_active = models.BooleanField(default=True)
@@ -29,5 +29,3 @@ class Comment(models.Model):
     @property
     def short_text(self):
         return truncatewords(self.text, 10)
-
-
